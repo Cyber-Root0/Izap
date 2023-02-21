@@ -1,7 +1,7 @@
 <?php
-$this->get('/home', function(){
-    echo "Estou na home!";
+
+$this->get('', function(){
+    echo "Estou na area da home";
 });
-$this->get('/homeaaa', function(){
-    echo "Estou na home!aa";
-});
+$this->get('/login', 'login\\LoginController@index');
+

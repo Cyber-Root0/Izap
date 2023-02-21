@@ -50,11 +50,43 @@ class RouterCore{
            if ($get['router'] == $this->uri || $get['router'].'/' == $this->uri ){
                 if (is_callable($get['call'])){
                     $get['call']();
+                    break;
+                }else{
+                    $this->executeController($get['call']);
+                    
                 }
                 break;
            }
            
         }
+    }
+    private function executeController($get){
+        $ex = explode("@",$get);
+       // dd($ex);
+        if (!isset($ex[0]) || !isset($ex[1]) ){
+            (new \app\controller\MessageController)->message404('404','Essa Controller, ou método não existe.');
+            return;
+        }
+
+        $const = 'app\\controller\\'.$ex[0];
+        //dd($const);
+        if (!class_exists($const)){
+            (new \app\controller\MessageController)->message404('404','controller não existe.');
+            return;
+        }
+        if (!method_exists($const,$ex[1])){
+            (new \app\controller\MessageController)->message404('404','método não existe.');
+            return;
+        }
+
+        call_user_func_array([
+            new $const,
+            $ex[1]
+           ],[]);
+           
+        
+       // dd($ex);
+        
     }
 
     private function get($router,$call){
