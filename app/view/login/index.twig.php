@@ -17,7 +17,7 @@
         }
 
         body {
-            background: url({{BASE}}img/login/backgground.avif) no-repeat;
+            background-color: #F0F0F2;
             background-size: cover;
             
             
@@ -69,7 +69,7 @@
                                     </div><br>
                                     
                                     <div class="form-group">
-                                        <input name="recover-submi" class="btn btn-lg btn-primary btn-block" value="Login" type="submit" style="background:rgb(0, 234, 0);" id="botao">
+                                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Login" type="submit" style="background:rgb(0, 234, 0);" id="botao">
                                     </div>
                                     <div class="form-group">
                                         <a href="{{BASE}}login/cadastro/"><string>Cadastre-se</string></a><br>
