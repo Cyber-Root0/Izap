@@ -1,7 +1,7 @@
 <?php
 
 namespace app\core;
-
+require_once('../app/functions/functions.php');
 class controller{
     
     protected function load(string $view, $params= []){
